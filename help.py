@@ -1,3 +1,5 @@
+from email import message
+from http import server
 import discord
 import sys
 import traceback
@@ -53,6 +55,35 @@ class MyHelp(discord.ext.commands.Cog, name='Greetings module'):
             embed.add_field(name="del X", value="supprime les X dernières lignes", inline=False)
             await message.channel.send(embed=embed)
 
+    #bot = commands.Bot(command_prefix = "!", description = "Bot de Sandra")
+    #@bot.event
+    
+    @commands.command()
+    @commands.guild_only()
+    async def serverinf(self, ctx):
+        """Says hello"""
+        name = str(ctx.guild.name)
+        description = str(ctx.guild.description)
+
+        owner = str(ctx.guild.owner)
+        id = str(ctx.guild.id)
+        region = str(ctx.guild.region)
+        memberCount = str(ctx.guild.member_count)
+
+        icon = str(ctx.guild.icon_url)
+        
+        embed = discord.Embed(
+            title=name + " Server Information",
+            description=description,
+            color=discord.Color.blue()
+            )
+        embed.set_thumbnail(url=icon)
+        embed.add_field(name="Owner", value=owner, inline=True)
+        embed.add_field(name="Server ID", value=id, inline=True)
+        embed.add_field(name="Region", value=region, inline=True)
+        embed.add_field(name="Member Count", value=memberCount, inline=True)
+
+        await ctx.send(embed=embed)
 
     
 
