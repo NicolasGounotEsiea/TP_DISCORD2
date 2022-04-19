@@ -61,7 +61,7 @@ class MyHelp(discord.ext.commands.Cog, name='Greetings module'):
     @commands.command()
     @commands.guild_only()
     async def serverinf(self, ctx):
-        """Says hello"""
+        """Info server"""
         name = str(ctx.guild.name)
         description = str(ctx.guild.description)
 
