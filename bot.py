@@ -12,13 +12,6 @@ class BBot(commands.Bot):
 
     
 
-    
-
-   
-
-
-
-
 
 
 
